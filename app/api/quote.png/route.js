@@ -15,24 +15,24 @@ try {
 }
 
 const CONFIG = {
-  width: 1000,
-  paddingX: 80,
-  paddingY: 120,
-  lineHeight: 50,
-  authorLineHeight: 42,
+  width: 1200,
+  paddingX: 400,
+  paddingY: 40,
+  lineHeight: 20,
+  authorLineHeight: 24,
   bgColor: '#191919',
   quoteColor: '#ffffff',
   authorColor: '#ffffff',
   accentColor: '#6c5ce7',
   borderLeft: 8,
   spacingBetweenQuoteAndAuthor: 28,
-  maxAuthorWidth: 800
+  maxAuthorWidth: 600
 };
 
 const localFallback = [
-  // { content: 'Stay hungry, stay foolish.', author: 'Steve Jobs' },
-  // { content: 'The only way out is through.', author: 'Robert Frost' },
-  // { content: 'Do or do not. There is no try.', author: 'Yoda' },
+  { content: 'Stay hungry, stay foolish.', author: 'Steve Jobs' },
+  { content: 'The only way out is through.', author: 'Robert Frost' },
+  { content: 'Do or do not. There is no try.', author: 'Yoda' },
   { content: 'Make it work, make it right, make it fast.', author: 'Kent Beck' }
 ];
 
@@ -106,7 +106,7 @@ function estimateLines(text, maxWidth, fontSize) {
 
 function satoriTree({ content, author }) {
   const w = CONFIG.width;
-  const textWidth = w - CONFIG.paddingX * 2 - CONFIG.borderLeft - 16;
+  const textWidth = (w) - CONFIG.paddingX * 2 - CONFIG.borderLeft - 16;
 
   // Estimate height for proper rendering
   const quoteLines = estimateLines(content, textWidth, 36);
@@ -122,6 +122,8 @@ function satoriTree({ content, author }) {
       style: {
         width: `${w}px`,
         height: `${estimatedHeight}px`,
+        alignItems: 'center',
+        justifyContent: 'center',
         display: 'flex',
         background: CONFIG.bgColor,
         color: CONFIG.quoteColor,
@@ -132,19 +134,7 @@ function satoriTree({ content, author }) {
         position: 'relative'
       },
       children: [
-        // {
-        //   type: 'div',
-        //   props: {
-        //     style: {
-        //       position: 'absolute',
-        //       left: `${CONFIG.paddingX - 24}px`,
-        //       top: `${CONFIG.paddingY - 8}px`,
-        //       width: `${CONFIG.borderLeft}px`,
-        //       bottom: `${CONFIG.paddingY - 8}px`,
-        //       background: CONFIG.accentColor
-        //     }
-        //   }
-        // },
+
         {
           type: 'div',
           props: {
@@ -159,7 +149,7 @@ function satoriTree({ content, author }) {
                 type: 'div',
                 props: {
                   style: {
-                    fontSize: '24px',
+                    fontSize: '16px',
                     lineHeight: `${CONFIG.lineHeight}px`,
                     whiteSpace: 'pre-wrap',
                     color: CONFIG.quoteColor,
@@ -172,7 +162,7 @@ function satoriTree({ content, author }) {
                 type: 'div',
                 props: {
                   style: {
-                    fontSize: '16px',
+                    fontSize: '12px',
                     lineHeight: `${CONFIG.authorLineHeight}px`,
                     color: CONFIG.authorColor,
                     textAlign: 'right',
