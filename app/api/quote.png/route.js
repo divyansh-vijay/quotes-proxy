@@ -15,9 +15,9 @@ try {
 }
 
 const CONFIG = {
-  width: 1200,
+  width: 1000,
   paddingX: 80,
-  paddingY: 80,
+  paddingY: 120,
   lineHeight: 50,
   authorLineHeight: 42,
   bgColor: '#191919',
@@ -26,7 +26,7 @@ const CONFIG = {
   accentColor: '#6c5ce7',
   borderLeft: 8,
   spacingBetweenQuoteAndAuthor: 28,
-  maxAuthorWidth: 980
+  maxAuthorWidth: 800
 };
 
 const localFallback = [
@@ -132,19 +132,19 @@ function satoriTree({ content, author }) {
         position: 'relative'
       },
       children: [
-        {
-          type: 'div',
-          props: {
-            style: {
-              position: 'absolute',
-              left: `${CONFIG.paddingX - 24}px`,
-              top: `${CONFIG.paddingY - 8}px`,
-              width: `${CONFIG.borderLeft}px`,
-              bottom: `${CONFIG.paddingY - 8}px`,
-              background: CONFIG.accentColor
-            }
-          }
-        },
+        // {
+        //   type: 'div',
+        //   props: {
+        //     style: {
+        //       position: 'absolute',
+        //       left: `${CONFIG.paddingX - 24}px`,
+        //       top: `${CONFIG.paddingY - 8}px`,
+        //       width: `${CONFIG.borderLeft}px`,
+        //       bottom: `${CONFIG.paddingY - 8}px`,
+        //       background: CONFIG.accentColor
+        //     }
+        //   }
+        // },
         {
           type: 'div',
           props: {
@@ -159,7 +159,7 @@ function satoriTree({ content, author }) {
                 type: 'div',
                 props: {
                   style: {
-                    fontSize: '36px',
+                    fontSize: '24px',
                     lineHeight: `${CONFIG.lineHeight}px`,
                     whiteSpace: 'pre-wrap',
                     color: CONFIG.quoteColor,
@@ -172,7 +172,7 @@ function satoriTree({ content, author }) {
                 type: 'div',
                 props: {
                   style: {
-                    fontSize: '28px',
+                    fontSize: '16px',
                     lineHeight: `${CONFIG.authorLineHeight}px`,
                     color: CONFIG.authorColor,
                     textAlign: 'right',
